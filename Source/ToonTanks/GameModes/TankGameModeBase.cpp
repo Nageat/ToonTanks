@@ -21,7 +21,7 @@ void ATankGameModeBase::ActorDied(AActor* DeadActor)
 	{
 		PlayerTank->HandleDestruction();
 		HandleGameOver(false);
-
+		//Game over perdu
 		if (PlayerControllerRef)
 		{
 			PlayerControllerRef->SetPlayerEnabledState(false);
@@ -69,4 +69,5 @@ void ATankGameModeBase::HandleGameStart()
 void ATankGameModeBase::HandleGameOver(bool bPlayerWon)
 {
 	GameOver(bPlayerWon);
+	//Appel de la fonction gameover si le joueur gagne 
 }

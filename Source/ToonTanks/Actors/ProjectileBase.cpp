@@ -37,7 +37,7 @@ void AProjectileBase::BeginPlay()
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp,
                             FVector NormalImpulse, const FHitResult& Hit)
 {
-
+	//Recevoir une référence de l'acteur.
 	AActor* MyOwner = GetOwner();
  
 	if (!MyOwner)
@@ -47,6 +47,8 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
  
 	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
 	{
+		//Calcule degat des tourelle 	
+
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController(), this, DamageType);
 		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation());
 		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());

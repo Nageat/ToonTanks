@@ -45,7 +45,7 @@ void APawnTank::Tick(float DeltaTime)
 void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	//mouvement 
 	PlayerInputComponent->BindAxis("MoveForward", this, &APawnTank::CalculateMoveInput);
 	PlayerInputComponent->BindAxis("Turn", this, &APawnTank::CalculateRotateInput);
 
@@ -54,11 +54,13 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void APawnTank::CalculateMoveInput(float Value)
 {
+	//Calcule vecteur
 	MoveDirection = FVector(Value * MoveSpeed * GetWorld()->GetDeltaSeconds(), 0, 0);
 }
 
 void APawnTank::CalculateRotateInput(float Value)
 {
+	//Calcule rotation
 	float const RotationAmount = Value * RotateSpeed * GetWorld()->GetDeltaSeconds();
 	FRotator const Rotation = FRotator(0, RotationAmount, 0);
 	RotationDirection = FQuat(Rotation);
@@ -79,6 +81,7 @@ void APawnTank::HandleDestruction()
 	Super::HandleDestruction();
 
 	bIsPlayerAlive = false;
+	//Destuction player
 	SetActorHiddenInGame(true);
 	SetActorTickEnabled(false);
 }

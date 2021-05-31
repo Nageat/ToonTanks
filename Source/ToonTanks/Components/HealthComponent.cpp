@@ -39,7 +39,7 @@ void UHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDam
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Health component has no valid reference to GameMode"));
+			UE_LOG(LogTemp, Warning, TEXT("erreur vie"));
 		}
 	}
 }

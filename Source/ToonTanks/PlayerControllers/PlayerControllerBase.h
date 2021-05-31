@@ -13,5 +13,6 @@ class TOONTANKS_API APlayerControllerBase : public APlayerController
 	GENERATED_BODY()
 
 public:
+	//Controle des boutons du joueur 
 	void SetPlayerEnabledState(bool bSetPlayerEnabled);
 };
