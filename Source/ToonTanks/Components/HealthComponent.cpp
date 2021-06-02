@@ -26,21 +26,14 @@ void UHealthComponent::BeginPlay()
 
 void UHealthComponent::TakeDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType,
 	AController* InstigatedBy, AActor* DamageCauser)
-{
+{//degat calcule
 	if(Damage == 0 || Health <= 0)	return;
 
 	Health = FMath::Clamp(Health - Damage, 0.0f, DefaultHealth);
 	
-	if(Health <= 0)
+	if(Health <= 0 && GameModeRef)
 	{
-		if(GameModeRef)
-		{
-			GameModeRef->ActorDied(GetOwner());
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("erreur vie"));
-		}
+		GameModeRef->ActorDied(GetOwner());
 	}
 }
 

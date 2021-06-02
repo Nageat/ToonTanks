@@ -8,12 +8,9 @@
 #include "ToonTanks/Actors/ProjectileBase.h"
 #include "ToonTanks/Components/HealthComponent.h"
 
-// Sets default values
 APawnBase::APawnBase()
 {
-	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+	//affectaation
 	CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Capsule Collider"));
 	RootComponent = CapsuleComponent;
 
